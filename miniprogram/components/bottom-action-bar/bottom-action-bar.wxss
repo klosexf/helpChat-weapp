@@ -54,7 +54,7 @@
   background-color: #F5F5F5;
   flex-direction: column;
   gap: 4rpx;
-  padding: 12rpx 0;
+  padding: 1rpx 0;
 }
 
 .bottom-action-bar__btn--secondary:active {
