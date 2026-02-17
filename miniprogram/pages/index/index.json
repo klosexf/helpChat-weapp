@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navigation-bar": "/components/navigation-bar/navigation-bar",
+    "scene-card": "/components/scene-card/scene-card",
+    "input-area": "/components/input-area/input-area"
+  }
+}

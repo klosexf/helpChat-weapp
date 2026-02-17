@@ -1,0 +1,83 @@
+/* 聊天回复助手 - 设计系统变量 */
+/* 基于页面效果图设计方案 */
+
+page {
+  /* 主色调系统 */
+  --primary: #8B7FD4;
+  --primary-light: #B8B0E8;
+  --primary-soft: #F0EDFA;
+  --primary-dark: #6B5FB8;
+
+  /* 辅助色系统 */
+  --accent-pink: #E8B4D9;
+  --accent-coral: #F4C2C2;
+  --accent-mint: #C8E6D5;
+
+  /* 中性色系统 */
+  --bg-gradient-start: #F5F3FA;
+  --bg-gradient-end: #EDE9F6;
+  --surface: rgba(255, 255, 255, 0.85);
+  --surface-solid: #FFFFFF;
+  --divider: rgba(139, 127, 212, 0.1);
+
+  /* 文字色系统 */
+  --text-primary: #1A1A2E;
+  --text-secondary: #6B6B7B;
+  --text-tertiary: #9B9BAB;
+  --text-inverse: #FFFFFF;
+
+  /* 功能色系统 */
+  --success: #7FD4A8;
+  --warning: #F4C894;
+  --error: #E8A4A4;
+
+  /* 阴影系统 */
+  --shadow-sm: 0 2rpx 8rpx rgba(139, 127, 212, 0.08);
+  --shadow-md: 0 4rpx 20rpx rgba(139, 127, 212, 0.12);
+  --shadow-lg: 0 8rpx 32rpx rgba(139, 127, 212, 0.16);
+
+  /* 圆角系统 */
+  --radius-sm: 12rpx;
+  --radius-md: 20rpx;
+  --radius-lg: 28rpx;
+  --radius-xl: 32rpx;
+  --radius-full: 9999rpx;
+
+  /* 间距系统 */
+  --space-xs: 8rpx;
+  --space-sm: 16rpx;
+  --space-md: 24rpx;
+  --space-lg: 32rpx;
+  --space-xl: 48rpx;
+
+  /* 字体系统 */
+  --font-size-xs: 22rpx;
+  --font-size-sm: 26rpx;
+  --font-size-md: 28rpx;
+  --font-size-lg: 32rpx;
+  --font-size-xl: 36rpx;
+  --font-size-xxl: 44rpx;
+
+  /* 安全区 */
+  --safe-area-top: env(safe-area-inset-top);
+  --safe-area-bottom: env(safe-area-inset-bottom);
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  page {
+    --bg-gradient-start: #1A1A2E;
+    --bg-gradient-end: #2A2A3E;
+    --surface: rgba(42, 42, 62, 0.85);
+    --surface-solid: #2A2A3E;
+    --divider: rgba(139, 127, 212, 0.2);
+    
+    --text-primary: #FFFFFF;
+    --text-secondary: #B0B0C0;
+    --text-tertiary: #808090;
+    
+    --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4rpx 20rpx rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8rpx 32rpx rgba(0, 0, 0, 0.4);
+  }
+}

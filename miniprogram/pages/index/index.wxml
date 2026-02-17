@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view class="page-wrapper">
+  <navigation-bar title="聊天回复助手" back="{{false}}" color="black" background="transparent"></navigation-bar>
+
+  <scroll-view class="scrollarea" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="page-container">
+      <!-- 头部区域 -->
+      <view class="header">
+        <view class="header__icon">
+          <view class="header__icon-inner">
+            <text class="header__icon-emoji">💬</text>
+          </view>
+        </view>
+        <view class="header__title">聊天回复助手</view>
+        <view class="header__subtitle">你的高情商聊天"嘴替"</view>
+      </view>
+
+      <!-- 场景选择区域 -->
+      <view class="scene-section">
+        <view class="scene-selector" bindtap="onSceneToggle">
+          <view class="scene-selector__left">
+            <view class="scene-selector__icon">
+              <view class="scene-selector__icon-inner"></view>
+            </view>
+            <text class="scene-selector__title">选择聊天场景</text>
+          </view>
+          <view class="scene-selector__right">
+            <text class="scene-selector__current">{{currentSceneName}}</text>
+            <view class="scene-selector__arrow"></view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 消息输入区域 -->
+      <view class="section">
+        <input-area
+          value="{{inputValue}}"
+          bind:input="onInputChange"
+          bind:upload="onImageUpload"
+        />
+      </view>
+
+      <!-- 生成按钮 -->
+      <view class="generate-section">
+        <button class="generate-btn {{canGenerate ? '' : 'generate-btn--disabled'}}" bindtap="onGenerate">
+          <text class="generate-btn__icon">✨</text>
+          <text class="generate-btn__text">立即生成回复</text>
+        </button>
+      </view>
+      
+      <!-- 底部占位 -->
+      <view class="bottom-placeholder"></view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部导航栏 -->
+  <view class="tab-bar">
+    <view class="tab-bar__inner">
+      <view class="tab-item tab-item--active">
+        <text class="tab-item__icon">💬</text>
+        <text class="tab-item__text">消息</text>
+      </view>
+      <view class="tab-item" bindtap="navigateToMine">
+        <text class="tab-item__icon">👤</text>
+        <text class="tab-item__text">我的</text>
+      </view>
+    </view>
+  </view>
+</view>

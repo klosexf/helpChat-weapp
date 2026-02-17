@@ -1,0 +1,7 @@
+<view class="scene-card {{selected ? 'scene-card--selected' : ''}}" bindtap="handleTap">
+  <view class="scene-card__icon">{{icon}}</view>
+  <view class="scene-card__content">
+    <view class="scene-card__title">{{title}}</view>
+    <view class="scene-card__desc">{{description}}</view>
+  </view>
+</view>

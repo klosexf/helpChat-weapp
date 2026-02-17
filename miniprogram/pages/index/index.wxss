@@ -1,0 +1,240 @@
+/* 首页样式 */
+
+page {
+  height: 100%;
+  background: linear-gradient(180deg, #F5F3FA, #EDE9F6);
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(180deg, #F5F3FA, #EDE9F6);
+}
+
+.scrollarea {
+  flex: 1;
+  height: 100%;
+}
+
+.page-container {
+  padding: 32rpx;
+  padding-bottom: 40rpx;
+}
+
+/* 头部区域 */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48rpx 0;
+  margin-bottom: 32rpx;
+}
+
+.header__icon {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background: #F0EDFA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(139, 127, 212, 0.12);
+}
+
+.header__icon-inner {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8B7FD4, #B8B0E8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__icon-emoji {
+  font-size: 56rpx;
+}
+
+.header__title {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #1A1A2E;
+  margin-bottom: 8rpx;
+}
+
+.header__subtitle {
+  font-size: 28rpx;
+  color: #6B6B7B;
+}
+
+/* 场景选择区域 - 单行切换样式 */
+.scene-section {
+  background: #FFFFFF;
+  border-radius: 32rpx;
+  padding: 32rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 20rpx rgba(139, 127, 212, 0.08);
+}
+
+.scene-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scene-selector__left {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.scene-selector__icon {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scene-selector__icon-inner {
+  width: 32rpx;
+  height: 32rpx;
+  background: #8B7FD4;
+  border-radius: 6rpx;
+  transform: rotate(45deg);
+  position: relative;
+}
+
+.scene-selector__icon-inner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16rpx;
+  height: 16rpx;
+  background: #FFFFFF;
+  border-radius: 2rpx;
+}
+
+.scene-selector__title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #1A1A2E;
+}
+
+.scene-selector__right {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  background: #F5F3FA;
+  padding: 16rpx 24rpx;
+  border-radius: 32rpx;
+  transition: all 0.2s ease;
+}
+
+.scene-selector__right:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+.scene-selector__current {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #8B7FD4;
+}
+
+.scene-selector__arrow {
+  width: 24rpx;
+  height: 24rpx;
+  border-right: 4rpx solid #8B7FD4;
+  border-bottom: 4rpx solid #8B7FD4;
+  transform: rotate(45deg);
+  margin-right: 4rpx;
+}
+
+/* 生成按钮区域 */
+.generate-section {
+  padding: 32rpx 0;
+}
+
+.generate-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+  padding: 32rpx;
+  background: linear-gradient(135deg, #8B7FD4, #B8B0E8);
+  border-radius: 28rpx;
+  border: none;
+  box-shadow: 0 8rpx 32rpx rgba(139, 127, 212, 0.16);
+}
+
+.generate-btn::after {
+  display: none;
+}
+
+.generate-btn--disabled {
+  opacity: 0.6;
+  box-shadow: 0 2rpx 8rpx rgba(139, 127, 212, 0.08);
+}
+
+.generate-btn__icon {
+  font-size: 36rpx;
+}
+
+.generate-btn__text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* 底部占位 */
+.bottom-placeholder {
+  height: 140rpx;
+}
+
+/* 底部导航栏 */
+.tab-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF;
+  border-top: 1rpx solid rgba(139, 127, 212, 0.1);
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 100;
+}
+
+.tab-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 16rpx 0;
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+  padding: 16rpx 32rpx;
+}
+
+.tab-item__icon {
+  font-size: 40rpx;
+}
+
+.tab-item__text {
+  font-size: 22rpx;
+  color: #9B9BAB;
+  font-weight: 500;
+}
+
+.tab-item--active .tab-item__text {
+  color: #8B7FD4;
+  font-weight: 600;
+}

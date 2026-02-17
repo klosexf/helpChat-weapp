@@ -1,0 +1,55 @@
+/* 场景卡片组件样式 */
+
+.scene-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx 24rpx;
+  background: #F8F7FC;
+  border-radius: 24rpx;
+  border: 2rpx solid transparent;
+  position: relative;
+  overflow: hidden;
+  width: calc(50% - 12rpx);
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.scene-card:active {
+  transform: scale(0.97);
+}
+
+.scene-card--selected {
+  background: #F0EDFA;
+  border-color: #8B7FD4;
+}
+
+.scene-card__icon {
+  font-size: 56rpx;
+  margin-bottom: 16rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.scene-card--selected .scene-card__icon {
+  transform: scale(1.05);
+}
+
+.scene-card__content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.scene-card__title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1A1A2E;
+  margin-bottom: 8rpx;
+}
+
+.scene-card__desc {
+  font-size: 24rpx;
+  color: #8B7FD4;
+}
