@@ -1,0 +1,64 @@
+/* 历史建议区域组件样式 */
+
+.history-section {
+  margin-top: 32rpx;
+}
+
+.history-section__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  padding: 24rpx 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.history-section__toggle:active {
+  opacity: 0.7;
+}
+
+.history-section__toggle-text {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #9B9BAB;
+  letter-spacing: 0.02em;
+}
+
+.history-section__toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.history-section__toggle-icon--expanded {
+  transform: rotate(180deg);
+}
+
+.history-section__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.history-section__content--expanded {
+  max-height: 3000rpx;
+  padding-top: 16rpx;
+  border-top: 2rpx solid rgba(0, 0, 0, 0.05);
+}
+
+.history-section__group {
+  margin-bottom: 32rpx;
+}
+
+.history-section__group:last-child {
+  margin-bottom: 0;
+}
+
+.history-section__divider {
+  display: block;
+  text-align: center;
+  font-size: 22rpx;
+  color: #9B9BAB;
+  font-style: italic;
+  margin-bottom: 24rpx;
+  letter-spacing: 0.02em;
+}

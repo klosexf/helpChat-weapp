@@ -1,0 +1,23 @@
+<!-- 底部操作栏组件 -->
+<view class="bottom-action-bar" style="padding-bottom: {{safeAreaBottom > 0 ? safeAreaBottom : 32}}rpx;">
+  <view class="bottom-action-bar__content">
+    <!-- 重新生成按钮 -->
+    <view 
+      class="bottom-action-bar__btn bottom-action-bar__btn--primary {{isLoading ? 'bottom-action-bar__btn--loading' : ''}}" 
+      bind:tap="handleRegenerate"
+    >
+      <view class="bottom-action-bar__icon {{isLoading ? 'bottom-action-bar__icon--rotating' : ''}}">
+        <t-icon name="refresh" size="22px" color="#FFFFFF" />
+      </view>
+      <text class="bottom-action-bar__text">{{regenerateText}}</text>
+    </view>
+
+    <!-- 语气调整按钮 -->
+    <view class="bottom-action-bar__btn bottom-action-bar__btn--secondary" bind:tap="handleToneAdjust">
+      <view class="bottom-action-bar__icon">
+        <t-icon name="setting" size="20px" color="#6B6B7B" />
+      </view>
+      <text class="bottom-action-bar__text bottom-action-bar__text--secondary">语气调整</text>
+    </view>
+  </view>
+</view>

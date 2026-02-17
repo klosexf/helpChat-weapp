@@ -1,0 +1,85 @@
+<!-- 聊天回复助手 - 结果页面 -->
+<view class="result-page">
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-bar__content">
+      <view class="nav-bar__left" bind:tap="handleGoBack">
+        <t-icon name="chevron-left" size="28px" color="#8B7FD4" />
+        <text class="nav-bar__back-text">返回</text>
+      </view>
+      <text class="nav-bar__title">生成结果</text>
+      <view class="nav-bar__right" bind:tap="handleMoreActions">
+        <t-icon name="more" size="24px" color="#9B9BAB" />
+      </view>
+    </view>
+  </view>
+
+  <!-- 页面内容 -->
+  <scroll-view 
+    class="result-page__content" 
+    scroll-y 
+    enhanced
+    show-scrollbar
+    style="padding-top: {{navBarHeight}}px; padding-bottom: {{bottomBarHeight}}px;"
+  >
+    <view class="result-page__container">
+      <!-- 原始消息卡片 -->
+      <original-message-card
+        content="{{originalMessage.content}}"
+        scene="{{originalMessage.scene}}"
+        source="{{originalMessage.source}}"
+        timestamp="{{originalMessage.timestamp}}"
+      />
+
+      <!-- 意图分析卡片 -->
+      <intent-analysis-card
+        type="{{intentAnalysis.type}}"
+        type-label="{{intentAnalysis.typeLabel}}"
+        description="{{intentAnalysis.description}}"
+        icon="{{intentAnalysis.icon}}"
+      />
+
+      <!-- 推荐回复区域 -->
+      <view class="reply-section">
+        <view class="reply-section__header">
+          <text class="reply-section__label">推荐回复</text>
+          <view class="reply-section__badge" wx:if="{{generationCount > 1}}">
+            <text class="reply-section__badge-text">刚刚更新</text>
+          </view>
+        </view>
+
+        <!-- 最新回复列表 -->
+        <view class="reply-section__list">
+          <block wx:for="{{latestReplies}}" wx:key="id">
+            <reply-card
+              reply-id="{{item.id}}"
+              dimension="{{item.dimension}}"
+              dimension-type="{{item.dimensionType}}"
+              content="{{item.content}}"
+              is-latest="{{item.isLatest}}"
+              is-copied="{{copiedReplyId === item.id}}"
+              bind:copy="handleCopyReply"
+            />
+          </block>
+        </view>
+
+        <!-- 历史建议区域 -->
+        <history-section
+          history-list="{{replyHistory}}"
+          bind:copy="handleCopyReply"
+        />
+      </view>
+
+      <!-- 底部占位 -->
+      <view class="result-page__placeholder" style="height: 160rpx;"></view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部操作栏 -->
+  <bottom-action-bar
+    is-loading="{{isLoading}}"
+    regenerate-text="{{regenerateButtonText}}"
+    bind:regenerate="handleRegenerate"
+    bind:toneAdjust="handleToneAdjust"
+  />
+</view>

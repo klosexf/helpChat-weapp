@@ -1,0 +1,27 @@
+<!-- 回复卡片组件 -->
+<view class="reply-card {{isLatest ? 'reply-card--latest' : 'reply-card--history'}}" bind:tap="handleCardTap">
+  <view class="reply-card__header">
+    <view 
+      class="reply-card__dimension-tag" 
+      style="background-color: {{dimensionColor.bg}}; color: {{dimensionColor.text}};"
+    >
+      {{dimension}}
+    </view>
+    <view class="reply-card__actions">
+      <view 
+        class="reply-card__copy-btn {{isCopied ? 'reply-card__copy-btn--copied' : ''}}" 
+        catch:tap="handleCopy"
+      >
+        <t-icon 
+          name="{{isCopied ? 'check' : 'copy'}}" 
+          size="18px" 
+          color="{{isCopied ? '#7FD4A8' : '#8B7FD4'}}"
+        />
+        <text class="reply-card__copy-text">{{isCopied ? '已复制' : '复制'}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="reply-card__content">
+    <text class="reply-card__text">{{content}}</text>
+  </view>
+</view>

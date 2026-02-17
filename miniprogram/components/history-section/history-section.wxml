@@ -1,0 +1,29 @@
+<!-- 历史建议区域组件 -->
+<view class="history-section">
+  <!-- 展开/收起按钮 -->
+  <view class="history-section__toggle" bind:tap="toggleExpand">
+    <text class="history-section__toggle-text">查看全部历史建议</text>
+    <view class="history-section__toggle-icon {{isExpanded ? 'history-section__toggle-icon--expanded' : ''}}">
+      <t-icon name="chevron-down" size="20px" color="#9B9BAB" />
+    </view>
+  </view>
+
+  <!-- 历史列表 -->
+  <view class="history-section__content {{isExpanded ? 'history-section__content--expanded' : ''}}">
+    <block wx:for="{{historyList}}" wx:key="generationId">
+      <view class="history-section__group">
+        <text class="history-section__divider">—— 第{{item.generationId}}次生成的建议 ——</text>
+        <block wx:for="{{item.replies}}" wx:for-item="reply" wx:key="id">
+          <reply-card
+            reply-id="{{reply.id}}"
+            dimension="{{reply.dimension}}"
+            dimension-type="{{reply.dimensionType}}"
+            content="{{reply.content}}"
+            is-latest="{{false}}"
+            bind:copy="handleCopyHistory"
+          />
+        </block>
+      </view>
+    </block>
+  </view>
+</view>

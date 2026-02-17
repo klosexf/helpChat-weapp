@@ -1,0 +1,95 @@
+/* 底部操作栏组件样式 */
+
+.bottom-action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1rpx solid rgba(0, 0, 0, 0.05);
+  padding: 24rpx 32rpx;
+  z-index: 100;
+}
+
+.bottom-action-bar__content {
+  display: flex;
+  gap: 20rpx;
+  align-items: stretch;
+  max-width: 750rpx;
+  margin: 0 auto;
+}
+
+.bottom-action-bar__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  border-radius: 20rpx;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.bottom-action-bar__btn:active {
+  transform: scale(0.98);
+}
+
+.bottom-action-bar__btn--primary {
+  flex: 3;
+  height: 96rpx;
+  background: linear-gradient(135deg, #8B7FD4 0%, #B8B0E8 100%);
+  box-shadow: 0 8rpx 32rpx rgba(139, 127, 212, 0.3);
+}
+
+.bottom-action-bar__btn--primary:active {
+  box-shadow: 0 4rpx 16rpx rgba(139, 127, 212, 0.2);
+}
+
+.bottom-action-bar__btn--loading {
+  opacity: 0.8;
+}
+
+.bottom-action-bar__btn--secondary {
+  flex: 1;
+  height: 96rpx;
+  background-color: #F5F5F5;
+  flex-direction: column;
+  gap: 4rpx;
+  padding: 12rpx 0;
+}
+
+.bottom-action-bar__btn--secondary:active {
+  background-color: #EBEBEB;
+}
+
+.bottom-action-bar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-action-bar__icon--rotating {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bottom-action-bar__text {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.bottom-action-bar__text--secondary {
+  font-size: 22rpx;
+  color: #6B6B7B;
+  font-weight: 600;
+}

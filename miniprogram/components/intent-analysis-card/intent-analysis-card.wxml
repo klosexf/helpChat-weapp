@@ -1,0 +1,18 @@
+<!-- 意图分析卡片组件 -->
+<view 
+  class="intent-card" 
+  style="background-color: {{colors.bg}}; border-left-color: {{colors.border}};"
+>
+  <view class="intent-card__header">
+    <view class="intent-card__icon" style="color: {{colors.icon}};">
+      <t-icon name="{{icon}}" size="20px" color="{{colors.icon}}" />
+    </view>
+    <text class="intent-card__title" style="color: {{colors.icon}};">意图分析</text>
+  </view>
+  <view class="intent-card__content">
+    <text class="intent-card__description">{{description}}</text>
+  </view>
+  <view class="intent-card__tag" style="background-color: {{colors.border}};">
+    <text class="intent-card__tag-text">{{typeLabel}}</text>
+  </view>
+</view>

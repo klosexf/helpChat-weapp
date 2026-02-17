@@ -1,0 +1,149 @@
+/* 聊天回复助手 - 结果页面样式 */
+
+/* 页面容器 */
+.result-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #F5F3FA 0%, #EDE9F6 100%);
+  position: relative;
+}
+
+/* 导航栏 */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-bar__content {
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24rpx;
+}
+
+.nav-bar__left {
+  display: flex;
+  align-items: center;
+  gap: 4rpx;
+  padding: 16rpx;
+  margin-left: -16rpx;
+  transition: opacity 0.2s ease;
+}
+
+.nav-bar__left:active {
+  opacity: 0.6;
+}
+
+.nav-bar__back-text {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #8B7FD4;
+}
+
+.nav-bar__title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1A1A2E;
+  letter-spacing: -0.01em;
+}
+
+.nav-bar__right {
+  padding: 16rpx;
+  margin-right: -16rpx;
+  transition: opacity 0.2s ease;
+}
+
+.nav-bar__right:active {
+  opacity: 0.6;
+}
+
+/* 页面内容 */
+.result-page__content {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.result-page__container {
+  padding: 32rpx;
+  max-width: 750rpx;
+  margin: 0 auto;
+}
+
+/* 推荐回复区域 */
+.reply-section {
+  margin-top: 16rpx;
+}
+
+.reply-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+  padding: 0 8rpx;
+}
+
+.reply-section__label {
+  font-size: 22rpx;
+  font-weight: 600;
+  color: #9B9BAB;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.reply-section__badge {
+  background-color: rgba(127, 212, 168, 0.15);
+  padding: 6rpx 16rpx;
+  border-radius: 9999rpx;
+}
+
+.reply-section__badge-text {
+  font-size: 20rpx;
+  font-weight: 600;
+  color: #7FD4A8;
+}
+
+.reply-section__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* 底部占位 */
+.result-page__placeholder {
+  width: 100%;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reply-card {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.reply-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.reply-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.reply-card:nth-child(3) {
+  animation-delay: 0.3s;
+}

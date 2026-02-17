@@ -1,0 +1,15 @@
+<!-- 原始消息卡片组件 -->
+<view class="original-message-card">
+  <view class="original-message-card__header">
+    <text class="original-message-card__label">原始消息</text>
+  </view>
+  <view class="original-message-card__content">
+    <view class="original-message-card__avatar">
+      <t-icon name="user" size="20px" color="#9B9BAB" />
+    </view>
+    <view class="original-message-card__info">
+      <text class="original-message-card__text">"{{content}}"</text>
+      <text class="original-message-card__meta">来自 {{source}} • {{timeAgo}}</text>
+    </view>
+  </view>
+</view>

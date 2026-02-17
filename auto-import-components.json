@@ -1,5 +1,10 @@
 {
+  "bottom-action-bar": "/components/bottom-action-bar/bottom-action-bar",
+  "history-section": "/components/history-section/history-section",
   "input-area": "/components/input-area/input-area",
+  "intent-analysis-card": "/components/intent-analysis-card/intent-analysis-card",
   "navigation-bar": "/components/navigation-bar/navigation-bar",
+  "original-message-card": "/components/original-message-card/original-message-card",
+  "reply-card": "/components/reply-card/reply-card",
   "scene-card": "/components/scene-card/scene-card"
 }

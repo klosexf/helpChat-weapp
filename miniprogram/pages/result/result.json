@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "生成结果",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "reply-card": "../../components/reply-card/reply-card",
+    "intent-analysis-card": "../../components/intent-analysis-card/intent-analysis-card",
+    "original-message-card": "../../components/original-message-card/original-message-card",
+    "history-section": "../../components/history-section/history-section",
+    "bottom-action-bar": "../../components/bottom-action-bar/bottom-action-bar"
+  }
+}

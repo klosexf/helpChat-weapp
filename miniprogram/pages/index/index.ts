@@ -1,5 +1,40 @@
-import { SCENE_CONFIGS, getSceneConfig } from '../../constants/scene';
 import type { SceneType } from '../../types';
+
+interface SceneConfig {
+  type: SceneType;
+  icon: string;
+  title: string;
+  description: string;
+  gradient: string;
+}
+
+const SCENE_CONFIGS: SceneConfig[] = [
+  {
+    type: 'workplace',
+    icon: '💼',
+    title: '职场',
+    description: '正式得体',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+  },
+  {
+    type: 'romance',
+    icon: '💕',
+    title: '异性',
+    description: '情绪价值',
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+  },
+  {
+    type: 'friend',
+    icon: '🤝',
+    title: '朋友',
+    description: '轻松有趣',
+    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+  }
+];
+
+const getSceneConfig = (type: string): SceneConfig | undefined => {
+  return SCENE_CONFIGS.find(config => config.type === type);
+};
 
 interface IndexData {
   scenes: typeof SCENE_CONFIGS;

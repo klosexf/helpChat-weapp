@@ -1,0 +1,56 @@
+/* 意图分析卡片组件样式 */
+
+.intent-card {
+  border-radius: 28rpx;
+  padding: 32rpx;
+  border-left-width: 6rpx;
+  border-left-style: solid;
+  margin-bottom: 32rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.intent-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.intent-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intent-card__title {
+  font-size: 30rpx;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.intent-card__content {
+  margin-bottom: 20rpx;
+}
+
+.intent-card__description {
+  font-size: 30rpx;
+  line-height: 1.7;
+  color: #1A1A2E;
+  font-weight: 500;
+  display: block;
+}
+
+.intent-card__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8rpx 20rpx;
+  border-radius: 9999rpx;
+  align-self: flex-start;
+}
+
+.intent-card__tag-text {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
