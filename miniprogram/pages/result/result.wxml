@@ -69,9 +69,6 @@
           bind:copy="handleCopyReply"
         />
       </view>
-
-      <!-- 底部占位 -->
-      <view class="result-page__placeholder" style="height: 160rpx;"></view>
     </view>
   </scroll-view>
 

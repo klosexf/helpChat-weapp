@@ -37,8 +37,8 @@ Component<IData, {}, {}>({
     /**
      * 处理复制历史回复
      */
-    handleCopyHistory(e: WechatMiniprogram.TouchEvent) {
-      const { replyId, content } = e.detail;
+    handleCopy(e: WechatMiniprogram.TouchEvent) {
+      const { replyId, content } = e.currentTarget.dataset;
       this.triggerEvent('copy', { replyId, content });
     },
   },

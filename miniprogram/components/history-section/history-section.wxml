@@ -2,9 +2,9 @@
 <view class="history-section">
   <!-- 展开/收起按钮 -->
   <view class="history-section__toggle" bind:tap="toggleExpand">
-    <text class="history-section__toggle-text">查看全部历史建议</text>
+    <text class="history-section__toggle-text">{{isExpanded ? '收起历史建议' : '查看历史建议'}}</text>
     <view class="history-section__toggle-icon {{isExpanded ? 'history-section__toggle-icon--expanded' : ''}}">
-      <t-icon name="chevron-down" size="20px" color="#9B9BAB" />
+      <t-icon name="chevron-up" size="20px" color="#9B9BAB" />
     </view>
   </view>
 
@@ -12,17 +12,46 @@
   <view class="history-section__content {{isExpanded ? 'history-section__content--expanded' : ''}}">
     <block wx:for="{{historyList}}" wx:key="generationId">
       <view class="history-section__group">
-        <text class="history-section__divider">—— 第{{item.generationId}}次生成的建议 ——</text>
-        <block wx:for="{{item.replies}}" wx:for-item="reply" wx:key="id">
-          <reply-card
-            reply-id="{{reply.id}}"
-            dimension="{{reply.dimension}}"
-            dimension-type="{{reply.dimensionType}}"
-            content="{{reply.content}}"
-            is-latest="{{false}}"
-            bind:copy="handleCopyHistory"
-          />
-        </block>
+        <!-- 时间线头部 -->
+        <view class="history-section__timeline-header">
+          <view class="history-section__timeline-dot"></view>
+          <text class="history-section__timeline-title">第{{item.generationId}}次生成的建议</text>
+        </view>
+
+        <!-- 话术列表 -->
+        <view class="history-section__list">
+          <block wx:for="{{item.replies}}" wx:for-item="reply" wx:key="id">
+            <view class="history-suggestion-item">
+              <!-- 时间线 -->
+              <view class="history-suggestion-item__timeline">
+                <view class="history-suggestion-item__timeline-line"></view>
+              </view>
+
+              <!-- 内容区域 -->
+              <view class="history-suggestion-item__content">
+                <!-- 维度标签和复制按钮 -->
+                <view class="history-suggestion-item__header">
+                  <view class="history-suggestion-item__tag">
+                    {{reply.dimension}}
+                  </view>
+                  <view
+                    class="history-suggestion-item__copy"
+                    data-reply-id="{{reply.id}}"
+                    data-content="{{reply.content}}"
+                    bind:tap="handleCopy"
+                  >
+                    <t-icon name="copy" size="18px" color="#C5C5D3" />
+                  </view>
+                </view>
+
+                <!-- 话术内容 -->
+                <view class="history-suggestion-item__body">
+                  <text class="history-suggestion-item__text">"{{reply.content}}"</text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
       </view>
     </block>
   </view>

@@ -89,13 +89,13 @@ Component<IData, {}, {}>({
      * 计算系统信息（导航栏高度等）
      */
     calculateSystemInfo() {
-      const deviceInfo = wx.getDeviceInfo();
       const windowInfo = wx.getWindowInfo();
       const statusBarHeight = windowInfo.statusBarHeight || 44;
-      const navBarHeight = 88; // 固定导航栏高度
-      const bottomBarHeight = 160 + (windowInfo.safeArea
+      const navBarHeight = 88;
+      const safeAreaBottom = windowInfo.safeArea
         ? windowInfo.screenHeight - windowInfo.safeArea.bottom
-        : 0);
+        : 0;
+      const bottomBarHeight = 72 + safeAreaBottom + 8;
 
       this.setData({
         statusBarHeight,
