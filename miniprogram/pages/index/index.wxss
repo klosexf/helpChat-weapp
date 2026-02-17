@@ -147,12 +147,13 @@ page {
 }
 
 .scene-selector__arrow {
-  width: 24rpx;
-  height: 24rpx;
-  border-right: 4rpx solid #8B7FD4;
-  border-bottom: 4rpx solid #8B7FD4;
+  width: 16rpx;
+  height: 16rpx;
+  border-right: 3rpx solid #8B7FD4;
+  border-bottom: 3rpx solid #8B7FD4;
   transform: rotate(45deg);
-  margin-right: 4rpx;
+  margin-right: 2rpx;
+  margin-bottom: 2rpx;
 }
 
 /* 生成按钮区域 */
