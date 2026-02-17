@@ -7,47 +7,34 @@
   overflow: hidden;
 }
 
-.input-area__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24rpx 32rpx;
-  border-bottom: 1rpx solid rgba(139, 127, 212, 0.1);
-}
-
-.input-area__title {
-  display: flex;
-  align-items: center;
-  gap: 16rpx;
-  font-size: 28rpx;
-  font-weight: 600;
-  color: #1A1A2E;
-}
-
-.input-area__icon {
-  font-size: 32rpx;
-}
-
-.input-area__count {
-  font-size: 22rpx;
-  color: #9B9BAB;
-}
-
 .input-area__body {
-  padding: 24rpx 32rpx;
-  min-height: 200rpx;
+  position: relative;
+  padding: 32rpx;
+  min-height: 240rpx;
 }
 
 .input-area__textarea {
   width: 100%;
-  min-height: 180rpx;
+  min-height: 200rpx;
   font-size: 28rpx;
   color: #1A1A2E;
   line-height: 1.6;
+  padding-bottom: 40rpx;
 }
 
 .input-area__placeholder {
   color: #9B9BAB;
+}
+
+.input-area__count {
+  position: absolute;
+  right: 32rpx;
+  bottom: 32rpx;
+  font-size: 24rpx;
+  color: #9B9BAB;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
 }
 
 .input-area__footer {

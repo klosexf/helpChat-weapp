@@ -1,16 +1,8 @@
 <view class="input-area">
-  <view class="input-area__header">
-    <view class="input-area__title">
-      <text class="input-area__icon">📝</text>
-      <text>粘贴或输入对方的消息</text>
-    </view>
-    <text class="input-area__count">{{value.length}}/500</text>
-  </view>
-  
   <view class="input-area__body">
     <textarea 
       class="input-area__textarea"
-      placeholder="在这里粘贴对方发送的消息，或点击下方按钮上传截图..."
+      placeholder="粘贴或输入对方的消息"
       placeholder-class="input-area__placeholder"
       value="{{value}}"
       maxlength="{{500}}"
@@ -18,6 +10,7 @@
       cursor-spacing="20"
       bindinput="handleInput"
     />
+    <view class="input-area__count">{{value.length}}/500</view>
   </view>
   
   <view class="input-area__footer">
