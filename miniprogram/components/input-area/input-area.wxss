@@ -10,16 +10,16 @@
 .input-area__body {
   position: relative;
   padding: 32rpx;
-  min-height: 240rpx;
+  min-height: 280rpx;
 }
 
 .input-area__textarea {
   width: 100%;
-  min-height: 200rpx;
+  min-height: 180rpx;
   font-size: 28rpx;
   color: #1A1A2E;
   line-height: 1.6;
-  padding-bottom: 40rpx;
+  padding-bottom: 80rpx;
 }
 
 .input-area__placeholder {
@@ -28,50 +28,57 @@
 
 .input-area__count {
   position: absolute;
-  right: 32rpx;
+  left: 32rpx;
   bottom: 32rpx;
-  font-size: 24rpx;
+  font-size: 22rpx;
   color: #9B9BAB;
   background: rgba(255, 255, 255, 0.9);
-  padding: 4rpx 12rpx;
+  padding: 4rpx 10rpx;
   border-radius: 8rpx;
 }
 
-.input-area__footer {
-  padding: 24rpx 32rpx;
-  border-top: 1rpx solid rgba(139, 127, 212, 0.1);
-}
-
+/* 按钮定位在编辑区右下角 */
 .input-area__actions {
+  position: absolute;
+  right: 32rpx;
+  bottom: 24rpx;
   display: flex;
-  gap: 24rpx;
+  gap: 16rpx;
 }
 
+/* 紧凑尺寸按钮 */
 .input-area__btn {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16rpx;
-  padding: 24rpx;
-  background: #F0EDFA;
-  border-radius: 20rpx;
+  gap: 8rpx;
+  padding: 14rpx 20rpx;
+  background: linear-gradient(135deg, #9B8FE8, #8B7FD4);
+  border-radius: 28rpx;
+  box-shadow: 0 3rpx 12rpx rgba(139, 127, 212, 0.2);
+  transition: all 0.2s ease;
 }
 
 .input-area__btn:active {
+  transform: scale(0.95);
   opacity: 0.9;
 }
 
 .input-area__btn--secondary {
-  background: rgba(255, 255, 255, 0.85);
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
 }
 
 .input-area__btn-icon {
-  font-size: 32rpx;
+  font-size: 24rpx;
 }
 
 .input-area__btn-text {
-  font-size: 26rpx;
+  font-size: 22rpx;
   font-weight: 500;
-  color: #8B7FD4;
+  color: #FFFFFF;
+}
+
+.input-area__btn--secondary .input-area__btn-text {
+  color: #4A4A5A;
 }

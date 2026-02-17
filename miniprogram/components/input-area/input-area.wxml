@@ -2,7 +2,7 @@
   <view class="input-area__body">
     <textarea 
       class="input-area__textarea"
-      placeholder="粘贴或输入对方的消息"
+      placeholder="在这里粘贴对方发送的消息，或点击下方按钮上传截图..."
       placeholder-class="input-area__placeholder"
       value="{{value}}"
       maxlength="{{500}}"
@@ -11,9 +11,8 @@
       bindinput="handleInput"
     />
     <view class="input-area__count">{{value.length}}/500</view>
-  </view>
-  
-  <view class="input-area__footer">
+    
+    <!-- 按钮移动到编辑区右下角 -->
     <view class="input-area__actions">
       <view class="input-area__btn" bindtap="handlePaste">
         <text class="input-area__btn-icon">📋</text>
