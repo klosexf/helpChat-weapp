@@ -6,5 +6,6 @@
   "navigation-bar": "/components/navigation-bar/navigation-bar",
   "original-message-card": "/components/original-message-card/original-message-card",
   "reply-card": "/components/reply-card/reply-card",
-  "scene-card": "/components/scene-card/scene-card"
+  "scene-card": "/components/scene-card/scene-card",
+  "tone-adjust-popup": "/components/tone-adjust-popup/tone-adjust-popup"
 }

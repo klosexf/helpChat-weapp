@@ -1,0 +1,436 @@
+/* 语气调整弹框组件样式 - 重构版 */
+
+/* ==================== 弹框容器 ==================== */
+
+.tone-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tone-popup--visible {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* 遮罩层 */
+.tone-popup__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* 弹框内容容器 */
+.tone-popup__container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FFFFFF;
+  border-radius: 32rpx 32rpx 0 0;
+  box-shadow: 0 -8rpx 40rpx rgba(0, 0, 0, 0.15);
+  transform: translateY(100%);
+  animation: slideUp 0.3s ease forwards;
+  height: auto;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* ==================== 固定区域 ==================== */
+
+/* 拖拽指示器 */
+.tone-popup__handle {
+  flex-shrink: 0;
+  padding: 16rpx 0 8rpx 0;
+  display: flex;
+  justify-content: center;
+}
+
+.tone-popup__handle-bar {
+  width: 80rpx;
+  height: 8rpx;
+  background-color: #E0E0E0;
+  border-radius: 8rpx;
+}
+
+/* 弹框头部 */
+.tone-popup__header {
+  flex-shrink: 0;
+  padding: 8rpx 32rpx 16rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tone-popup__title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1A1A2E;
+}
+
+.tone-popup__close {
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F5;
+  border-radius: 50%;
+}
+
+.tone-popup__close:active {
+  background-color: #EBEBEB;
+}
+
+/* 分段Tab */
+.tone-popup__tabs {
+  flex-shrink: 0;
+  padding: 0 32rpx 20rpx 32rpx;
+}
+
+.tone-tabs {
+  display: flex;
+  background-color: #F5F5F5;
+  padding: 6rpx;
+  border-radius: 20rpx;
+}
+
+.tone-tabs__item {
+  flex: 1;
+  padding: 14rpx 0;
+  text-align: center;
+  border-radius: 16rpx;
+}
+
+.tone-tabs__item--active {
+  background-color: #FFFFFF;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.tone-tabs__text {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #6B6B7B;
+}
+
+.tone-tabs__item--active .tone-tabs__text {
+  font-weight: 700;
+  color: #8B7FD4;
+}
+
+/* ==================== 滚动区域 ==================== */
+
+.tone-popup__scroll {
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+
+.tone-popup__content {
+  padding: 0 32rpx 32rpx 32rpx;
+}
+
+/* 标题区域 */
+.tone-popup__section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8rpx 0 16rpx 0;
+}
+
+.tone-popup__section-title {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #1A1A2E;
+}
+
+.tone-popup__section-hint {
+  font-size: 20rpx;
+  color: #9B9BAB;
+}
+
+/* ==================== 卡片网格 ==================== */
+
+.tone-styles {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -6rpx;
+}
+
+.tone-style {
+  width: 50%;
+  padding: 6rpx;
+  box-sizing: border-box;
+}
+
+.tone-style__card {
+  display: flex;
+  align-items: center;
+  padding: 12rpx;
+  background-color: #FAFAFA;
+  border: 2rpx solid #EBEBEB;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+}
+
+.tone-style__card--active {
+  background-color: #F0EDFA;
+  border-color: #8B7FD4;
+}
+
+.tone-style__card:active {
+  transform: scale(0.98);
+}
+
+.tone-style__icon-wrap {
+  width: 40rpx;
+  height: 40rpx;
+  min-width: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F0F0F0;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.tone-style__card--active .tone-style__icon-wrap {
+  background-color: #8B7FD4;
+}
+
+.tone-style__text-wrap {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.tone-style__label {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1A1A2E;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tone-style__desc {
+  display: block;
+  font-size: 22rpx;
+  color: #9B9BAB;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 2rpx;
+}
+
+/* ==================== 底部操作区 ==================== */
+
+.tone-popup__footer {
+  flex-shrink: 0;
+  padding: 20rpx 32rpx 80rpx 32rpx;
+  border-top: 1rpx solid #F0F0F0;
+  background-color: #FFFFFF;
+}
+
+.tone-popup__confirm-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 84rpx;
+  background: linear-gradient(135deg, #8B7FD4 0%, #B8B0E8 100%);
+  border-radius: 16rpx;
+  box-shadow: 0 6rpx 20rpx rgba(139, 127, 212, 0.25);
+}
+
+.tone-popup__confirm-btn:active {
+  transform: scale(0.98);
+}
+
+.tone-popup__confirm-text {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-left: 8rpx;
+}
+
+.tone-popup__selected-hint {
+  display: block;
+  text-align: center;
+  margin-top: 16rpx;
+  font-size: 22rpx;
+  color: #9B9BAB;
+}
+
+.tone-popup__selected-label {
+  color: #8B7FD4;
+  font-weight: 600;
+}
+
+/* ==================== 深色模式 ==================== */
+
+@media (prefers-color-scheme: dark) {
+  .tone-popup__container {
+    background-color: #1A1A2E;
+  }
+
+  .tone-popup__handle-bar {
+    background-color: #3A3A4E;
+  }
+
+  .tone-popup__title {
+    color: #FFFFFF;
+  }
+
+  .tone-popup__close {
+    background-color: #2A2A3E;
+  }
+
+  .tone-tabs {
+    background-color: #2A2A3E;
+  }
+
+  .tone-tabs__item--active {
+    background-color: #3A3A4E;
+  }
+
+  .tone-tabs__text {
+    color: #B0B0C0;
+  }
+
+  .tone-tabs__item--active .tone-tabs__text {
+    color: #B8B0E8;
+  }
+
+  .tone-popup__section-title {
+    color: #FFFFFF;
+  }
+
+  .tone-style__card {
+    background-color: #2A2A3E;
+    border-color: #3A3A4E;
+  }
+
+  .tone-style__card--active {
+    background-color: rgba(139, 127, 212, 0.15);
+    border-color: #8B7FD4;
+  }
+
+  .tone-style__icon-wrap {
+    background-color: #3A3A4E;
+  }
+
+  .tone-style__label {
+    color: #FFFFFF;
+  }
+
+  .tone-popup__footer {
+    border-top-color: #3A3A4E;
+    background-color: #1A1A2E;
+  }
+
+  .tone-popup__selected-hint {
+    color: #808090;
+  }
+
+  .tone-popup__selected-label {
+    color: #B8B0E8;
+  }
+}
+
+/* ==================== 响应式适配 ==================== */
+
+/* 小屏幕 */
+@media screen and (max-width: 320px) {
+  .tone-popup__container {
+    max-height: 85vh;
+  }
+
+  .tone-popup__header {
+    padding: 4rpx 24rpx 12rpx 24rpx;
+  }
+
+  .tone-popup__title {
+    font-size: 32rpx;
+  }
+
+  .tone-popup__tabs {
+    padding: 0 24rpx 16rpx 24rpx;
+  }
+
+  .tone-tabs__text {
+    font-size: 22rpx;
+  }
+
+  .tone-popup__content {
+    padding: 0 24rpx 24rpx 24rpx;
+  }
+
+  .tone-style__card {
+    padding: 10rpx;
+  }
+
+  .tone-style__icon-wrap {
+    width: 32rpx;
+    height: 32rpx;
+    min-width: 32rpx;
+  }
+
+  .tone-style__label {
+    font-size: 22rpx;
+  }
+
+  .tone-style__desc {
+    font-size: 16rpx;
+  }
+
+  .tone-popup__footer {
+    padding: 16rpx 24rpx 60rpx 24rpx;
+  }
+
+  .tone-popup__confirm-btn {
+    height: 76rpx;
+  }
+
+  .tone-popup__confirm-text {
+    font-size: 26rpx;
+  }
+}
+
+/* 大屏幕 */
+@media screen and (min-width: 414px) {
+  .tone-style__card {
+    padding: 14rpx;
+  }
+
+  .tone-style__icon-wrap {
+    width: 44rpx;
+    height: 44rpx;
+    min-width: 44rpx;
+  }
+
+  .tone-style__label {
+    font-size: 26rpx;
+  }
+
+  .tone-style__desc {
+    font-size: 20rpx;
+  }
+}

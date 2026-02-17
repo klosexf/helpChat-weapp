@@ -79,4 +79,13 @@
     bind:regenerate="handleRegenerate"
     bind:toneAdjust="handleToneAdjust"
   />
+
+  <!-- 语气调整弹框 -->
+  <tone-adjust-popup
+    visible="{{tonePopupVisible}}"
+    scene="{{originalMessage.scene}}"
+    selected-dimension="{{selectedDimension}}"
+    bind:close="handleTonePopupClose"
+    bind:confirm="handleToneConfirm"
+  />
 </view>

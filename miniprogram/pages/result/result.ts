@@ -25,26 +25,19 @@ const INTENT_TYPE_COLORS: Record<IntentTypeCode, { bg: string; border: string; i
 };
 
 interface IData {
-  // 原始消息
   originalMessage: OriginalMessage;
-  // 意图分析
   intentAnalysis: IntentAnalysis;
-  // 最新回复列表
   latestReplies: Reply[];
-  // 历史回复记录
   replyHistory: ReplyHistory[];
-  // 当前生成次数
   generationCount: number;
-  // 加载状态
   isLoading: boolean;
-  // 重新生成按钮文字
   regenerateButtonText: string;
-  // 复制状态
   copiedReplyId: string;
-  // 导航栏高度
   statusBarHeight: number;
   navBarHeight: number;
   bottomBarHeight: number;
+  tonePopupVisible: boolean;
+  selectedDimension: string;
 }
 
 interface IQuery {
@@ -75,6 +68,8 @@ Component<IData, {}, {}>({
     statusBarHeight: 44,
     navBarHeight: 88,
     bottomBarHeight: 160,
+    tonePopupVisible: false,
+    selectedDimension: '',
   },
 
   lifetimes: {
@@ -332,11 +327,51 @@ Component<IData, {}, {}>({
      * 处理语气调整
      */
     handleToneAdjust() {
-      wx.showToast({
-        title: '语气调整功能开发中',
-        icon: 'none',
-        duration: 1500,
+      this.setData({ tonePopupVisible: true });
+    },
+
+    /**
+     * 处理关闭语气弹框
+     */
+    handleTonePopupClose() {
+      this.setData({ tonePopupVisible: false });
+    },
+
+    /**
+     * 处理语气确认
+     */
+    handleToneConfirm(e: WechatMiniprogram.CustomEvent) {
+      const { scene, dimension, label } = e.detail as {
+        scene: string;
+        dimension: string;
+        label: string;
+      };
+
+      this.setData({
+        tonePopupVisible: false,
+        selectedDimension: dimension,
+        isLoading: true,
+        regenerateButtonText: '生成中...',
       });
+
+      setTimeout(() => {
+        const newReplies = this.generateMockReplies(scene).map(reply => ({
+          ...reply,
+          id: `reply_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        }));
+
+        this.setData({
+          latestReplies: newReplies,
+          isLoading: false,
+          regenerateButtonText: '重新生成建议',
+        });
+
+        wx.showToast({
+          title: `已切换为${label}风格`,
+          icon: 'success',
+          duration: 1500,
+        });
+      }, 1500);
     },
 
     /**

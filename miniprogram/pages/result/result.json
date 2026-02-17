@@ -6,6 +6,7 @@
     "intent-analysis-card": "../../components/intent-analysis-card/intent-analysis-card",
     "original-message-card": "../../components/original-message-card/original-message-card",
     "history-section": "../../components/history-section/history-section",
-    "bottom-action-bar": "../../components/bottom-action-bar/bottom-action-bar"
+    "bottom-action-bar": "../../components/bottom-action-bar/bottom-action-bar",
+    "tone-adjust-popup": "../../components/tone-adjust-popup/tone-adjust-popup"
   }
 }

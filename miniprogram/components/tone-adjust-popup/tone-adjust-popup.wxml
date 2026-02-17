@@ -1,0 +1,88 @@
+<!-- 语气调整弹框组件 -->
+<view class="tone-popup {{visible ? 'tone-popup--visible' : ''}}" catchtouchmove="preventTouchMove">
+  <!-- 遮罩层 -->
+  <view class="tone-popup__mask" bind:tap="handleMaskTap" wx:if="{{visible}}"></view>
+
+  <!-- 弹框内容 -->
+  <view class="tone-popup__container" wx:if="{{visible}}" bind:tap="handleContentTap">
+    <!-- 拖拽指示器 -->
+    <view class="tone-popup__handle">
+      <view class="tone-popup__handle-bar"></view>
+    </view>
+
+    <!-- 弹框头部 -->
+    <view class="tone-popup__header">
+      <text class="tone-popup__title">语气调整</text>
+      <view class="tone-popup__close" bind:tap="handleClose">
+        <t-icon name="close" size="20px" color="#9B9BAB" />
+      </view>
+    </view>
+
+    <!-- 分段Tab -->
+    <view class="tone-popup__tabs">
+      <view class="tone-tabs">
+        <block wx:for="{{tabs}}" wx:key="key">
+          <view
+            class="tone-tabs__item {{currentTabKey === item.key ? 'tone-tabs__item--active' : ''}}"
+            data-key="{{item.key}}"
+            bind:tap="handleTabTap"
+          >
+            <text class="tone-tabs__text">{{item.label}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 推荐风格区域 - 可滚动 -->
+    <scroll-view 
+      class="tone-popup__scroll" 
+      scroll-y 
+      enhanced 
+      show-scrollbar="{{false}}"
+    >
+      <view class="tone-popup__content">
+        <!-- 标题区域 -->
+        <view class="tone-popup__section-header">
+          <text class="tone-popup__section-title">推荐风格</text>
+          <text class="tone-popup__section-hint">选择风格重新生成</text>
+        </view>
+
+        <!-- 风格选项网格 -->
+        <view class="tone-styles">
+          <block wx:for="{{currentStyles}}" wx:key="key">
+            <view class="tone-style">
+              <view 
+                class="tone-style__card {{selectedStyleKey === item.key ? 'tone-style__card--active' : ''}}"
+                data-key="{{item.key}}"
+                bind:tap="handleStyleTap"
+              >
+                <view class="tone-style__icon-wrap">
+                  <t-icon name="{{item.icon}}" size="14px" color="{{selectedStyleKey === item.key ? '#FFFFFF' : '#6B6B7B'}}" />
+                </view>
+                <view class="tone-style__text-wrap">
+                  <text class="tone-style__label">{{item.label}}</text>
+                  <text class="tone-style__desc">{{item.description}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 底部操作区 -->
+    <view class="tone-popup__footer" style="padding-bottom: {{safeAreaBottom > 0 ? safeAreaBottom + 16 : 80}}rpx;">
+      <view class="tone-popup__confirm-btn" bind:tap="handleConfirm">
+        <t-icon name="auto_fix_high" size="20px" color="#FFFFFF" />
+        <text class="tone-popup__confirm-text">确认应用并生成</text>
+      </view>
+      <text class="tone-popup__selected-hint">
+        已选：<text class="tone-popup__selected-label">
+          <block wx:for="{{currentStyles}}" wx:key="key">
+            <text wx:if="{{item.key === selectedStyleKey}}">{{item.label}}</text>
+          </block>
+        </text>
+      </text>
+    </view>
+  </view>
+</view>
